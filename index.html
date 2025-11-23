@@ -1,0 +1,1919 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       Pinch of Pink - Fashion Design & Exclusive Clothing
+       You can edit this easily in CodePen and host on GitHub
+       ========================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pinch of Pink — Fashion Design Studio & Exclusive Clothing</title>
+  <meta name="description" content="Pinch of Pink is a fashion designing studio offering exclusive clothing, custom outfits and designer wear. Founded by Radhika Kapoor in 2020, based in Lajpat Nagar, New Delhi.">
+  <meta name="author" content="Pinch of Pink · Radhika Kapoor">
+  <meta name="theme-color" content="#fef6fb" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Schema / JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Pinch of Pink",
+    "url": "https://your-github-pages-url.com",
+    "logo": "https://i.postimg.cc/k5nyVFng/Gemini-Generated-Image-2tzq522tzq522tzq.png",
+    "founder": "Radhika Kapoor",
+    "foundingDate": "2020",
+    "description": "Fashion designing and exclusive cloth work studio in New Delhi, India.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 17, Lajpat Nagar 4",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "postalCode": "110024",
+      "addressCountry": "IN"
+    },
+    "telephone": "+917418067620",
+    "email": "contact.pinch@gmail.com"
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       Root Variables & Global Reset
+       ========================================================= */
+    :root {
+      --bg: #fef6fb;
+      --bg-soft: #fff8ff;
+      --card: #ffffff;
+      --muted: #6f6f79;
+      --accent: #ff7aa2;
+      --accent-dark: #ff4f8c;
+      --accent-soft: rgba(255, 122, 162, 0.16);
+      --border-soft: rgba(0, 0, 0, 0.04);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --max: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffe4f1 0, #fef6fb 35%, #ffffff 100%);
+      color: #12121a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 3px solid rgba(255, 122, 162, 0.45);
+      outline-offset: 3px;
+    }
+
+    /* =========================================================
+       Layout Helpers
+       ========================================================= */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       Header & Navigation
+       ========================================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86));
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #fff0f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.12s, color 0.2s;
+      color: #33323b;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 122, 162, 0.08);
+      transform: translateY(-1px);
+      color: #11111a;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(255, 79, 140, 0.35);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(255, 79, 140, 0.4);
+    }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      background: #ffffff;
+      margin-left: auto;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .hamburger-lines {
+      width: 20px;
+      height: 14px;
+      position: relative;
+    }
+
+    .hamburger-lines span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #333;
+      border-radius: 999px;
+      transition: transform 0.18s, opacity 0.18s, top 0.18s, bottom 0.18s;
+    }
+
+    .hamburger-lines span:nth-child(1) { top: 0; }
+    .hamburger-lines span:nth-child(2) { top: 6px; }
+    .hamburger-lines span:nth-child(3) { bottom: 0; }
+
+    .hamburger.open .hamburger-lines span:nth-child(1) {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+    .hamburger.open .hamburger-lines span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open .hamburger-lines span:nth-child(3) {
+      bottom: 6px;
+      transform: rotate(-45deg);
+    }
+
+    /* =========================================================
+       Hero Section
+       ========================================================= */
+    .hero {
+      padding-top: 96px;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255, 235, 244, 0.9), transparent 55%),
+        radial-gradient(circle at top right, rgba(255, 208, 234, 0.9), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(255, 233, 245, 0.9), transparent 45%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 40px;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .hero-left {
+      max-width: 560px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .headline {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    .headline span.accent {
+      color: var(--accent-dark);
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+      max-width: 480px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.14s, box-shadow 0.14s, background 0.14s, color 0.14s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(255, 79, 140, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(255, 79, 140, 0.4);
+    }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      color: #33323b;
+    }
+
+    .btn-soft:hover {
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #ffffff, #fff4fb);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 229, 241, 0.9), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .owner-photo-wrap {
+      position: relative;
+    }
+
+    .owner-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 5px solid #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      background: #f9d2e4;
+    }
+
+    .owner-tag {
+      position: absolute;
+      bottom: -4px;
+      right: -2px;
+      background: #111;
+      color: #fff;
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .owner-info h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .owner-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .owner-contact small {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .owner-contact a {
+      font-weight: 600;
+      color: #222;
+    }
+
+    .hero-stats {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(0, 0, 0, 0.06);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 3px;
+    }
+
+    .stat-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       About Section
+       ========================================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 239, 248, 0.7), transparent 55%);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .about-highlight {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(255, 122, 162, 0.35);
+      background: rgba(255, 249, 252, 0.9);
+      font-size: 12px;
+      color: #8c3e58;
+    }
+
+    .about-image-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 260px;
+      background: #ffe9f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* =========================================================
+       Services Section
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .service-tag {
+      display: inline-flex;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 122, 162, 0.09);
+      font-size: 11px;
+      color: #923152;
+      margin-top: 4px;
+    }
+
+    /* =========================================================
+       Collection Section
+       ========================================================= */
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .collection-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .filter-pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+
+    .filter-pill.active {
+      background: var(--accent-soft);
+      border-color: rgba(255, 122, 162, 0.5);
+      color: #8e2f53;
+      font-weight: 600;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .item-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s, box-shadow 0.18s;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .item-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .item-image {
+      position: relative;
+      height: 240px;
+      background: linear-gradient(135deg, #ffe1f1, #ffc5e1);
+      overflow: hidden;
+    }
+
+    .item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .item-body {
+      padding: 12px 14px 14px;
+    }
+
+    .item-body h4 {
+      font-size: 15px;
+      font-family: "Playfair Display", serif;
+      margin-bottom: 4px;
+    }
+
+    .item-body p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .item-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .badge-soft {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(248, 238, 250, 0.9);
+      border: 1px solid rgba(241, 222, 243, 0.9);
+    }
+
+    /* =========================================================
+       Gallery Section
+       ========================================================= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      height: 150px;
+      background: #ffe2f0;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Lightbox overlay */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.84);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 90vw;
+      max-height: 86vh;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    /* =========================================================
+       Testimonials Section
+       ========================================================= */
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(180deg, #ffffff, #fff5fb);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 20px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+    }
+
+    .testimonial-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .testimonial-text {
+      font-size: 13px;
+      color: #5a2b40;
+    }
+
+    /* =========================================================
+       Contact & Inquiry Form
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-card h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .contact-card a {
+      color: #c4356d;
+      font-weight: 600;
+    }
+
+    .contact-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #7c3e57;
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 236, 246, 0.9);
+      border: 1px dashed rgba(255, 122, 162, 0.45);
+    }
+
+    .form-card h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .form-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .inquiry-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 16px;
+      margin-top: 4px;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+      color: #4b4b55;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      font: inherit;
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.98);
+      transition: border-color 0.14s, box-shadow 0.14s, background 0.14s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #b3aeb6;
+      font-size: 12px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(255, 122, 162, 0.65);
+      box-shadow: 0 0 0 1px rgba(255, 122, 162, 0.15);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .form-helper {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Popup message for "We will contact shortly" */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px 20px 18px;
+      max-width: 320px;
+      width: 100%;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-badge {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(241, 252, 247, 0.96);
+      border: 1px solid rgba(164, 219, 191, 0.9);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #1b6b42;
+      margin-bottom: 8px;
+    }
+
+    .popup-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .popup-text {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .popup-close-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(255, 79, 140, 0.4);
+    }
+
+    /* =========================================================
+       Footer
+       ========================================================= */
+    footer {
+      background: #111018;
+      color: #f9f7fb;
+      padding: 26px 0 30px;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    .footer-left strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .footer-left small {
+      color: #a3a0af;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right a {
+      color: #ff9abb;
+      text-decoration: underline;
+    }
+
+    /* =========================================================
+       Responsive Styles
+       ========================================================= */
+    @media (max-width: 1100px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero {
+        padding-top: 86px;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .testimonials-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 64px 0;
+      }
+
+      .headline {
+        font-size: 30px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+      }
+
+      .hero-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .collection-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+
+      .inquiry-form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       Header & Navigation
+       ========================================================= -->
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- 🔽 Paste your LOGO image link from postimg.cc here -->
+          <img
+            src="https://i.postimg.cc/k5nyVFng/Gemini-Generated-Image-2tzq522tzq522tzq.png"
+            alt="Pinch of Pink logo"
+          >
+        </div>
+
+        <div class="brand-text">
+          <h1>Pinch of Pink</h1>
+          <small>Estd. 2020 · Fashion & Exclusive Clothing</small>
+        </div>
+      </div>
+
+      <nav id="mainNav">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#collection">Collection</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Book an Inquiry
+        </button>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <div class="hamburger-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Hero Section
+       ========================================================= -->
+  <section class="hero" id="top">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge-row">
+          <span class="pill">
+            <span>✨</span>
+            Bespoke Fashion Studio
+          </span>
+          <span class="eyebrow">New Delhi · Lajpat Nagar 4</span>
+        </div>
+
+        <h2 class="headline">
+          Crafted looks with a
+          <span class="accent">Pinch of Pink</span>.
+        </h2>
+
+        <p class="hero-subtitle">
+          Pinch of Pink is a fashion designing studio focused on exclusive cloth work, custom outfits,
+          and small-batch designer pieces — led by founder &amp; CEO <strong>Radhika Kapoor</strong>.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn btn-primary">
+            Book a Styling Call
+          </a>
+          <a href="#collection" class="btn btn-soft">
+            View Sample Collection
+          </a>
+        </div>
+
+        <p class="hero-note">
+          From concept to final fitting — we design for weddings, events, and everyday elegance.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="owner-photo-wrap">
+              <!-- 🔽 Paste OWNER photo link from postimg.cc here -->
+              <img
+                class="owner-photo"
+                src="https://i.postimg.cc/dQSNzXJy/photo-2025-11-23-01-03-48.jpg"
+                alt="Owner & designer - Radhika Kapoor"
+              >
+              <span class="owner-tag">Designer</span>
+            </div>
+            <div class="owner-info">
+              <h3>Radhika Kapoor</h3>
+              <div class="owner-role">Founder &amp; CEO · Head Fashion Designer</div>
+              <div class="owner-contact">
+                <small>Phone</small>
+                <a href="tel:+917418067620">+91 74180 67620</a>
+                <small style="margin-top:4px;">Email</small>
+                <a href="mailto:contact.pinch@gmail.com">contact.pinch@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-label">Studio</div>
+              <div class="stat-value">Lajpat Nagar 4</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Since</div>
+              <div class="stat-value">Estd. 2020</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Focus</div>
+              <div class="stat-value">Fashion & Exclusive Cloth Work</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       About Section
+       ========================================================= -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <h3 class="section-title">About Pinch of Pink</h3>
+      <p class="section-sub">
+        Pinch of Pink brings together delicate details, bold silhouettes, and a soft romantic touch.
+        Every outfit is made to express your personality — from everyday elegance to statement occasion wear.
+      </p>
+
+      <div class="about-grid">
+        <article class="card">
+          <div class="card-inner">
+            <h4>Our Story</h4>
+            <p>
+              Founded in <strong>2020</strong> by <strong>Radhika Kapoor</strong>, Pinch of Pink began as a
+              small studio focused on one-on-one custom outfits. What started as a passion project for friends
+              and family soon grew into a boutique name for exclusive cloth work and thoughtful detailing.
+            </p>
+
+            <p>
+              Today, we continue to work in small batches — prioritising fit, fabric, and finish over mass
+              production. Every pattern is refined, every stitch inspected and every piece finished by hand.
+            </p>
+
+            <h4 style="margin-top:14px;">What We Do</h4>
+            <p>
+              From bridal and engagement outfits to festive wear and premium everyday clothing, we design
+              bespoke looks tailored to your mood, body type and event. You can bring us references or start
+              from a blank canvas — we co-create your ideal outfit together.
+            </p>
+
+            <div class="about-highlight">
+              <strong>Studio Address:</strong><br>
+              Plot No. 17, Lajpat Nagar 4, New Delhi 110024, India.
+            </div>
+          </div>
+        </article>
+
+        <div class="about-image-wrap">
+          <!-- 🔽 Paste BOUTIQUE / STUDIO image link from postimg.cc here -->
+          <img
+            src="https://i.postimg.cc/Kz3QFcGY/Screenshot-26.png"
+            alt="Pinch of Pink boutique studio interior"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Services Section
+       ========================================================= -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <h3 class="section-title">Fashion Design Services</h3>
+      <p class="section-sub">
+        We specialise in fashion designing and exclusive cloth work — from custom sketches to final fittings.
+        Here is how we usually work with clients.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🧵</div>
+          <h4>Custom Outfit Designing</h4>
+          <p>
+            One-on-one design consultations to create outfits from scratch — perfect for weddings,
+            receptions, pre-wedding functions and special occasions.
+          </p>
+          <span class="service-tag">Made-to-measure</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✨</div>
+          <h4>Exclusive Cloth Work</h4>
+          <p>
+            Embellished details, hand embroidery, bead work and fabric manipulation. We focus on
+            pieces that look rich yet feel comfortable.
+          </p>
+          <span class="service-tag">Hand-finished details</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">👗</div>
+          <h4>Capsule & Occasion Wardrobes</h4>
+          <p>
+            Curated mini wardrobes for bridesmaids, family and close friends, plus event-based looks
+            styled around your colour story.
+          </p>
+          <span class="service-tag">Styled set of looks</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Collection Section
+       ========================================================= -->
+  <section class="section" id="collection">
+    <div class="wrap">
+      <h3 class="section-title">Sample Collection</h3>
+      <p class="section-sub">
+        Below are sample items to show layout. You can replace all placeholders with your own photos
+        from postimg.cc and update titles, notes and descriptions.
+      </p>
+
+      <div class="collection-header">
+        <div>
+          <span class="eyebrow">Preview Pieces</span>
+        </div>
+        <div class="collection-filter">
+          <button class="filter-pill active" type="button">All</button>
+          <button class="filter-pill" type="button">Ethnic</button>
+          <button class="filter-pill" type="button">Western</button>
+          <button class="filter-pill" type="button">Fusion</button>
+        </div>
+      </div>
+
+      <div class="collection-grid">
+        <!-- Item 1 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 1 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/1200x/64/a0/9d/64a09d24d724abdf9b4e089dc5fbbc95.jpg"
+              alt="Outfit 1 · Rose Quartz Lehenga"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Rose Quartz Lehenga</h4>
+            <p>
+              Soft pastel lehenga with hand embroidery and subtle shimmer — perfect for engagement,
+              roka or intimate weddings.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Custom sizing</span>
+              <span>Made on order</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 2 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/736x/2c/fe/06/2cfe06e54ef047eae5a370ccbb251c01.jpg"
+              alt="Outfit 2 · Blush Power Set"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Blush Power Set</h4>
+            <p>
+              Structured blazer and trouser set with a feminine twist and clean tailoring —
+              perfect for formal events, launches and professional occasions.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Studio fitting</span>
+              <span>By appointment</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 3 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/1200x/4a/be/41/4abe41a72bb4446f2f03f0c32d4739cc.jpg"
+              alt="Outfit 3 · Signature Saree Drape"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Signature Saree Drape</h4>
+            <p>
+              Contemporary saree styling with a structured blouse and playful drape details,
+              ideal for cocktails and festive nights.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Drape styling</span>
+              <span>Custom colours</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 4 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/736x/81/ec/46/81ec46215fcdbc4f5c1a3e9cc89a223d.jpg"
+              alt="Outfit 4 · Pastel Evening Gown"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Pastel Evening Gown</h4>
+            <p>
+              Flowing gown with soft layers, ideal for receptions, sangeet, or evening parties.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Lightweight</span>
+              <span>Made to order</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 5 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/736x/85/7e/13/857e137ca9d4b82e27a80fe36190dbe2.jpg"
+              alt="Outfit 5 · Casual Luxe Set"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Casual Luxe Set</h4>
+            <p>
+              Co-ord set for brunches, getaways and easy evenings, with elevated fabric and clean cuts.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Everyday chic</span>
+              <span>Limited run</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="item-card">
+          <div class="item-image">
+            <!-- 🔽 Paste OUTIFT 6 image link from postimg.cc here -->
+            <img
+              src="https://i.pinimg.com/736x/28/a5/66/28a566c68a59fd7ce25775faf04d934f.jpg"
+              alt="Outfit 6 · Custom Bridal Ensemble"
+            >
+          </div>
+          <div class="item-body">
+            <h4>Custom Bridal Ensemble</h4>
+            <p>
+              Fully customised bridal look, designed with you from first sketch to final fitting.
+            </p>
+            <div class="item-meta-row">
+              <span class="badge-soft">Concept to finish</span>
+              <span>By consultation</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Gallery Section
+       ========================================================= -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <h3 class="section-title">Studio & Outfit Gallery</h3>
+      <p class="section-sub">
+        Use this section for a mix of studio, work-in-progress and final outfit shots.
+        Paste your gallery images from postimg.cc below.
+      </p>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 1 -->
+          <img src="https://i.pinimg.com/1200x/a7/71/bb/a771bb71bb5af1857894f1f1dcf6553d.jpg" alt="Gallery image 1">
+          <div class="gallery-caption">Studio Corner</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 2 -->
+          <img src="https://i.pinimg.com/1200x/2e/41/c5/2e41c599a9f842749f60455ffdaa8adf.jpg" alt="Gallery image 2">
+          <div class="gallery-caption">Work in Progress</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 3 -->
+          <img src="https://i.pinimg.com/736x/67/ab/48/67ab4846fb72bd2a9738cc262c24922f.jpg" alt="Gallery image 3">
+          <div class="gallery-caption">Detail Shot</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 4 -->
+          <img src="https://i.pinimg.com/736x/06/28/e2/0628e28dac49949c977d029897a8a1e6.jpg" alt="Gallery image 4">
+          <div class="gallery-caption">Fitting Session</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 5 -->
+          <img src="https://i.pinimg.com/736x/b1/9f/35/b19f35eeda8eb0b4937ed40a3c965b57.jpg" alt="Gallery image 5">
+          <div class="gallery-caption">Occasion Wear</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 6 -->
+          <img src="https://i.pinimg.com/736x/e8/d5/6a/e8d56a97c08a24b82f6dcf4fa9d55965.jpg" alt="Gallery image 6">
+          <div class="gallery-caption">Colour Story</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 7 -->
+          <img src="https://i.pinimg.com/1200x/13/51/8a/13518ab1cf0a679ef9ff14f5c7ae2812.jpg" alt="Gallery image 7">
+          <div class="gallery-caption">Fabric Swatches</div>
+        </div>
+        <div class="gallery-item" data-gallery-item>
+          <!-- 🔽 Gallery 8 -->
+          <img src="https://i.pinimg.com/736x/32/5b/86/325b867ed92e860ec8a76352e1273e42.jpg" alt="Gallery image 8">
+          <div class="gallery-caption">Client Look</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox for gallery -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-inner">
+      <!-- Image gets injected here from JS when you click a gallery image -->
+    </div>
+  </div>
+
+  <!-- =========================================================
+       Testimonials Section
+       ========================================================= -->
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <h3 class="section-title">Client Notes</h3>
+      <p class="section-sub">
+        A few kind words from people who trusted Pinch of Pink with their most important outfits.
+        You can replace this text with real reviews anytime.
+      </p>
+
+      <div class="testimonials-row">
+        <article class="testimonial-card">
+          <div class="testimonial-meta">
+            <strong>Ananya · Bride</strong> &nbsp;|&nbsp; Custom Lehenga
+          </div>
+          <div class="testimonial-text">
+            “Radhika took my scattered ideas and turned them into a dream lehenga. The colour,
+            fall and detailing were exactly what I imagined — and the fitting needed almost no changes.”
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-meta">
+            <strong>Simran · Event Host</strong> &nbsp;|&nbsp; Evening Gown &amp; Saree Drape
+          </div>
+          <div class="testimonial-text">
+            “The gowns and draped saree she made for my event looked super premium and were still
+            easy to move in. I loved the styling suggestions and small pink touches she added.”
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Contact & Inquiry Section
+       ========================================================= -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <h3 class="section-title">Contact & Inquiry Form</h3>
+      <p class="section-sub">
+        Share your requirement and basic details below — we’ll review your request and
+        <strong>contact you shortly</strong> with next steps, timelines and approximate pricing.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Contact Info Card -->
+        <article class="card contact-card">
+          <div class="card-inner">
+            <h4>Studio Location</h4>
+            <p>
+              <strong>Pinch of Pink · Fashion Designing Studio</strong><br>
+              Plot No. 17, Lajpat Nagar 4,<br>
+              New Delhi 110024, India.
+            </p>
+
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:+917418067620">+91 74180 67620</a><br>
+              <strong>Email:</strong>
+              <a href="mailto:contact.pinch@gmail.com">contact.pinch@gmail.com</a>
+            </p>
+
+            <p>
+              Prefer WhatsApp / call for quicker coordination of measurements and fabric selection.
+            </p>
+
+            <div class="contact-note">
+              We usually reply within 24–48 hours for new inquiries.
+              Weekend and late-evening appointments can be discussed on request.
+            </div>
+          </div>
+        </article>
+
+        <!-- Inquiry Form Card -->
+        <article class="card form-card">
+          <div class="card-inner">
+            <h4>Customer Inquiry Form</h4>
+            <p>
+              Fill this form to send us a quick inquiry. This is just for display:
+              you can later connect it to Formspree, EmailJS, or your own backend.
+            </p>
+
+            <form class="inquiry-form" id="inquiryForm">
+              <!-- Name -->
+              <div class="form-full">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" required placeholder="Your name">
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="name@example.com">
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone">Phone / WhatsApp</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91 9XXXXXXXXX">
+              </div>
+
+              <!-- Service -->
+              <div>
+                <label for="service">Service Required</label>
+                <select id="service" name="service" required>
+                  <option value="">Select an option</option>
+                  <option value="custom-outfit">Custom outfit design</option>
+                  <option value="exclusive-work">Exclusive cloth work</option>
+                  <option value="bridal">Bridal / wedding wear</option>
+                  <option value="wardrobe">Capsule / event wardrobe</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+
+              <!-- Budget -->
+              <div>
+                <label for="budget">Approx Budget (optional)</label>
+                <input id="budget" name="budget" type="text" placeholder="e.g. 50,000–30,0000 INR">
+              </div>
+
+              <!-- Message -->
+              <div class="form-full">
+                <label for="message">Details</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Occasion, date, colours, any reference photos, number of outfits..."
+                ></textarea>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn btn-primary">
+                  Send Inquiry
+                </button>
+                <div class="form-helper">
+                 Fill The Form and click “Send Inquiry”
+                  <strong>“We will contact shortly”</strong>.
+                </div>
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Popup for "We will contact shortly"
+       ========================================================= -->
+  <div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+    <div class="popup-box">
+      <div class="popup-badge">Inquiry Received</div>
+      <div class="popup-title">Thank you! 💌</div>
+      <div class="popup-text">
+        We’ve received your inquiry. Our team at <strong>Pinch of Pink</strong>
+        will contact you shortly with more details.
+      </div>
+      <button class="popup-close-btn" id="popupCloseBtn" type="button">
+        Okay, great
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <strong>Pinch of Pink</strong>
+        <small>Fashion designing & exclusive cloth work · Estd. 2020</small>
+        <small>Studio: Plot No. 17, Lajpat Nagar 4, New Delhi 110024, India.</small>
+      </div>
+      <div class="footer-right">
+        <small>
+          Phone:
+          <a href="tel:+917418067620">+91 74180 67620</a>
+        </small><br>
+        <small>
+          Email:
+          <a href="mailto:contact.pinch@gmail.com">contact.pinch@gmail.com</a>
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts: mobile nav, hero parallax, gallery, popup form
+       ========================================================= -->
+  <script>
+    // ---------------------------------------------------------
+    // Mobile navigation toggle
+    // ---------------------------------------------------------
+    (function() {
+      const hamburger = document.getElementById("hamburger");
+      const mainNav = document.getElementById("mainNav");
+
+      if (!hamburger || !mainNav) return;
+
+      hamburger.addEventListener("click", function() {
+        const isOpen = hamburger.classList.toggle("open");
+        if (isOpen) {
+          mainNav.style.display = "flex";
+          mainNav.style.position = "absolute";
+          mainNav.style.right = "20px";
+          mainNav.style.top = "64px";
+          mainNav.style.padding = "10px";
+          mainNav.style.borderRadius = "14px";
+          mainNav.style.background = "#ffffff";
+          mainNav.style.flexDirection = "column";
+          mainNav.style.boxShadow = "0 16px 40px rgba(0,0,0,0.12)";
+          mainNav.style.gap = "10px";
+        } else {
+          mainNav.style.display = "";
+          mainNav.style.position = "";
+          mainNav.style.boxShadow = "";
+        }
+      });
+
+      // Close when clicking outside on mobile
+      document.addEventListener("click", function(event) {
+        if (window.innerWidth > 900) return;
+        if (!hamburger.contains(event.target) && !mainNav.contains(event.target)) {
+          hamburger.classList.remove("open");
+          mainNav.style.display = "";
+          mainNav.style.position = "";
+          mainNav.style.boxShadow = "";
+        }
+      });
+
+      // Reset nav style when resizing to desktop
+      window.addEventListener("resize", function() {
+        if (window.innerWidth > 900) {
+          mainNav.style.display = "";
+          mainNav.style.position = "";
+          mainNav.style.boxShadow = "";
+          hamburger.classList.remove("open");
+        }
+      });
+    })();
+
+    // ---------------------------------------------------------
+    // Simple parallax on hero background
+    // ---------------------------------------------------------
+    (function() {
+      const heroBg = document.getElementById("heroBg");
+      if (!heroBg) return;
+
+      window.addEventListener(
+        "scroll",
+        function() {
+          const scrollY = window.scrollY || window.pageYOffset;
+          heroBg.style.transform = "translateY(" + scrollY * 0.12 + "px)";
+        },
+        { passive: true }
+      );
+    })();
+
+    // ---------------------------------------------------------
+    // Gallery lightbox
+    // ---------------------------------------------------------
+    (function() {
+      const galleryGrid = document.getElementById("galleryGrid");
+      const overlay = document.getElementById("lightboxOverlay");
+      const inner = overlay ? overlay.querySelector(".lightbox-inner") : null;
+
+      if (!galleryGrid || !overlay || !inner) return;
+
+      galleryGrid.addEventListener("click", function(event) {
+        const item = event.target.closest("[data-gallery-item]");
+        if (!item) return;
+
+        const img = item.querySelector("img");
+        if (!img) return;
+
+        const clone = img.cloneNode(true);
+        inner.innerHTML = "";
+        inner.appendChild(clone);
+        overlay.classList.add("active");
+      });
+
+      overlay.addEventListener("click", function() {
+        overlay.classList.remove("active");
+      });
+    })();
+
+    // ---------------------------------------------------------
+    // Inquiry form popup (We will contact shortly)
+    // ---------------------------------------------------------
+    (function() {
+      const form = document.getElementById("inquiryForm");
+      const popupOverlay = document.getElementById("popupOverlay");
+      const popupCloseBtn = document.getElementById("popupCloseBtn");
+
+      if (!form || !popupOverlay || !popupCloseBtn) return;
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault(); // no actual backend right now
+
+        // Show popup
+        popupOverlay.classList.add("active");
+        popupOverlay.setAttribute("aria-hidden", "false");
+
+        // Reset form fields after submit
+        form.reset();
+      });
+
+      popupCloseBtn.addEventListener("click", function() {
+        popupOverlay.classList.remove("active");
+        popupOverlay.setAttribute("aria-hidden", "true");
+      });
+
+      // Close popup when clicking outside the popup box
+      popupOverlay.addEventListener("click", function(event) {
+        if (event.target === popupOverlay) {
+          popupOverlay.classList.remove("active");
+          popupOverlay.setAttribute("aria-hidden", "true");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
